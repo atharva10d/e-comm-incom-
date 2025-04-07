@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Premium E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links (No link active) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Removed Login link, but might be conceptually present for user flow -->
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content for Register Page ===== -->
+    <main>
+        <section class="section auth-page">
+            <div class="container">
+                <div class="auth-form-container">
+                    <h2>Create Account</h2>
+                    <p style="margin-bottom: 2rem; color: #777;">Join us to get access to exclusive deals and faster checkout!</p>
+
+                    <form class="auth-form" id="register-form" novalidate>
+
+                        <div class="form-group">
+                            <label for="registerName" class="sr-only">Full Name</label> <!-- Screen reader only if using floating labels -->
+                            <input type="text" id="registerName" name="registerName" placeholder="Full Name" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                             <label for="registerEmail" class="sr-only">Email Address</label>
+                            <input type="email" id="registerEmail" name="registerEmail" placeholder="Email Address" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword" class="sr-only">Password</label>
+                            <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required minlength="8"> <!-- Example: Enforce minimum length -->
+                            <span class="error-message"></span>
+                        </div>
+
+                         <div class="form-group">
+                            <label for="confirmPassword" class="sr-only">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                            <span class="error-message"></span> <!-- JS will need to check if passwords match -->
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+
+                        <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                            Already have an account?
+                            <!-- Link back to index or a conceptual login page -->
+                            <a href="index.html">Login Here (Return Home)</a>
+                            <!-- If login.html existed: <a href="login.html">Login Here</a> -->
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <!-- Footer Columns (Same as index.html) -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Clothing">Clothing</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                         <li><a href="products.html?category=Home Decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

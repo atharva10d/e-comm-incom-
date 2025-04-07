@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Premium E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links (Products is now active) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li> <!-- Assuming login.html exists -->
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+        <!-- Search Bar Container (Positioned absolutely relative to header/nav) -->
+        <div id="search-bar-container">
+             <input type="search" id="search-input-dropdown" placeholder="Search products...">
+             <!-- Add search results dropdown or suggestions here if needed -->
+        </div>
+    </header>
+
+    <!-- ===== Main Content for Products Page ===== -->
+    <main>
+        <section class="section products-page">
+            <div class="container"> <!-- This container holds the grid layout for filters and products -->
+
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+
+                    <!-- Search Filter -->
+                    <div class="filter-group">
+                        <h4>Search Products</h4>
+                        <input type="search" id="search-input" placeholder="Enter keywords..." aria-label="Search Products">
+                    </div>
+
+                    <!-- Category Filter - Options dynamically populated by script.js -->
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <select id="category-filter" aria-label="Filter by Category">
+                            <option value="all">All Categories</option>
+                            <!-- script.js will populate this based on mockCategories derived from productDataByCategory -->
+                        </select>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <label for="price-range" class="sr-only">Maximum Price</label>
+                        <!-- IMPORTANT: script.js sets 'max', 'value', and updates the span -->
+                        <input type="range" id="price-range" min="0" max="100000" step="100" value="100000">
+                        <p>Max Price: <span id="price-range-value">₹1,00,000</span></p> <!-- JS updates value -->
+                    </div>
+
+                    <!-- Add more filters if needed -->
+
+                    <button class="btn btn-secondary" id="reset-filters-btn" style="width: 100%; margin-top: 1rem;">Reset Filters</button>
+
+                </aside>
+
+                <!-- Product Listing Area -->
+                <div class="product-listing">
+                     <h1 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: 2rem;">All Products</h1>
+                     <p id="product-count-info" style="margin-bottom: 20px; color: var(--text-color-secondary);" aria-live="polite"></p> <!-- JS updates this text -->
+
+                     <!-- Product Grid (script.js populates this container) -->
+                     <div class="product-grid" id="product-grid">
+                         <p id="products-loading-message" style="text-align:center; padding: 2rem; grid-column: 1 / -1;">Loading products...</p>
+                         <!-- Product cards will be injected here by script.js -->
+                     </div>
+                      <!-- Pagination Placeholder (Optional) -->
+                     <!-- <nav aria-label="Product Navigation" class="pagination">...</nav> -->
+                </div> <!-- End .product-listing -->
+
+            </div> <!-- End .container -->
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <!-- Footer Columns - UPDATED Shop Links to match new categories -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Men%27s+Clothing">Men's Clothing</a></li>
+                        <li><a href="products.html?category=Women%27s+Clothing">Women's Clothing</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Smartphones+%26+Tablets">Smartphones & Tablets</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                        <li><a href="products.html?category=Home+Appliances">Home Appliances</a></li>
+                        <li><a href="products.html?category=Beauty+%26+Grooming">Beauty & Grooming</a></li>
+                        <li><a href="products.html?category=Accessories">Accessories</a></li>
+                         <!-- Add more links as desired, ensuring category names match -->
+                        <li><a href="products.html?category=Books">Books</a></li>
+                        <li><a href="products.html?category=Furniture">Furniture</a></li>
+                        <li><a href="products.html?category=Kids+%26+Toys">Kids & Toys</a></li>
+                        <li><a href="products.html?category=Sports+%26+Fitness">Sports & Fitness</a></li>
+                        <li><a href="products.html?category=Kitchen+%26+Dining">Kitchen & Dining</a></li>
+                        <li><a href="products.html?category=Travel+%26+Outdoors">Travel & Outdoors</a></li>
+                        <li><a href="products.html?category=Stationery+%26+Art">Stationery & Art</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li> <!-- Placeholder -->
+                        <li><a href="#">Careers</a></li> <!-- Placeholder -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li> <!-- Placeholder -->
+                        <li><a href="#">Shipping & Returns</a></li> <!-- Placeholder -->
+                        <li><a href="#">Track Order</a></li> <!-- Placeholder -->
+                        <li><a href="#">Privacy Policy</a></li> <!-- Placeholder -->
+                         <li><a href="#">Terms & Conditions</a></li> <!-- Placeholder -->
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li> <!-- Placeholder -->
+                        <li><a href="#">Instagram</a></li> <!-- Placeholder -->
+                        <li><a href="#">Twitter</a></li> <!-- Placeholder -->
+                        <li><a href="#">LinkedIn</a></li> <!-- Placeholder -->
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <!-- IMPORTANT: script.js handles populating categories, products, filters, and interactions -->
+    <script src="script.js"></script>
+</body>
+</html>

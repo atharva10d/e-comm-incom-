@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Premium E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links (No link active for checkout page typically) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content for Checkout Page ===== -->
+    <main>
+        <section class="section checkout-page">
+            <div class="container">
+                <h1 class="section-title">Checkout</h1>
+
+                <div class="checkout-layout"> <!-- Wrapper for grid layout -->
+
+                    <!-- Checkout Form Section -->
+<!-- START: Modified code in checkout.html -->
+<div class="form-group">
+    <label for="address">Street Address</label>
+    <input type="text" id="address" name="address" placeholder="Flat No, Building, Street Name" required> <!-- Changed placeholder -->
+     <span class="error-message"></span>
+</div>
+
+<div class="form-grid">
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="e.g., Mumbai" required> <!-- Changed placeholder -->
+         <span class="error-message"></span>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label> <!-- Changed label -->
+        <input type="text" id="state" name="state" placeholder="e.g., Maharashtra" required> <!-- Changed placeholder -->
+         <span class="error-message"></span>
+    </div>
+    <div class="form-group">
+        <label for="zip">Pincode</label> <!-- Changed label -->
+        <input type="text" id="zip" name="zip" placeholder="e.g., 400001" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6"> <!-- Changed placeholder and added pattern -->
+         <span class="error-message"></span>
+    </div>
+</div>
+
+ <div class="form-group">
+    <label for="country">Country</label>
+    <input type="text" id="country" name="country" placeholder="India" value="India" required> <!-- Set default value -->
+     <span class="error-message"></span>
+</div>
+
+<div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required> <!-- Changed placeholder -->
+     <span class="error-message"></span>
+</div>
+<!-- END: Modified code in checkout.html -->
+                            <!-- Mock Payment Section Placeholder -->
+                            <h3 style="margin-top: 2rem;">Payment Details (Mock)</h3>
+                            <p style="font-size: 0.9rem; color: #777; margin-bottom: 1rem;">
+                                This is a demonstration. No real payment will be processed.
+                                You can simulate payment by clicking "Confirm Order".
+                            </p>
+                             <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" name="cardName" placeholder="Full Name as on Card" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="•••• •••• •••• ••••" required inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19">
+                                <span class="error-message"></span>
+                            </div>
+                             <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM / YY" required pattern="\d{2}\s?\/\s?\d{2}">
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" required inputmode="numeric" pattern="\d{3,4}" maxlength="4">
+                                     <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <!-- The submit button is conceptually part of the form, but might be placed within the summary in some designs -->
+                            <!-- It's placed here for direct form association -->
+                            <button type="submit" class="btn btn-primary btn-glowing" style="width: 100%; margin-top: 1.5rem;">Confirm Order</button>
+
+                        </form>
+                    </div>
+
+                    <!-- Order Review / Summary Section -->
+                    <aside class="order-summary-checkout" id="order-summary-checkout">
+                        <h3>Order Review</h3>
+                        <!-- Items can be listed here dynamically by JS if needed -->
+                        <div id="checkout-items-summary" style="margin-bottom: 1.5rem; max-height: 200px; overflow-y: auto;">
+                             <!-- JS can populate a simplified list like: -->
+                             <!-- <p>Item 1 (x2) - $19.98</p> -->
+                             <!-- <p>Item 2 (x1) - $49.99</p> -->
+                             <p style="font-style: italic; color: #777;">(Order details will be calculated)</p>
+                        </div>
+
+                        <!-- Final Totals (JS should populate these from cart data) -->
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="checkout-shipping">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="checkout-tax">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="checkout-total">$0.00</span>
+                        </div>
+
+                         <!-- Optional: Add promo code input here -->
+                         <!--
+                         <div class="promo-code" style="margin-top: 1rem;">
+                             <label for="promo" style="font-weight: 500;">Promo Code</label>
+                             <div style="display: flex; gap: 8px; margin-top: 5px;">
+                                 <input type="text" id="promo" name="promo" placeholder="Enter code" style="flex-grow: 1; padding: 8px;">
+                                 <button class="btn btn-secondary" style="padding: 8px 12px;">Apply</button>
+                             </div>
+                         </div>
+                         -->
+                    </aside>
+
+                </div> <!-- End .checkout-layout -->
+            </div> <!-- End .container -->
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <!-- Footer Columns (Same as index.html) -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Clothing">Clothing</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                         <li><a href="products.html?category=Home Decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Simple inline script to potentially populate totals on checkout load
+        // Note: Better practice is to have all this logic in script.js
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve cart totals from localStorage (or recalculated)
+            // This is a simplified example - main script.js should handle this robustly
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const taxRate = 0.08;
+            const shippingCost = subtotal > 50 ? 0 : 10;
+            const tax = subtotal * taxRate;
+            const total = subtotal + tax + shippingCost;
+
+            const subtotalEl = document.getElementById('checkout-subtotal');
+            const shippingEl = document.getElementById('checkout-shipping');
+            const taxEl = document.getElementById('checkout-tax');
+            const totalEl = document.getElementById('checkout-total');
+
+            if(subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            if(shippingEl) shippingEl.textContent = shippingCost === 0 ? 'Free' : `$${shippingCost.toFixed(2)}`;
+            if(taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
+            if(totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+            // Optional: Populate item summary
+            const itemsSummaryEl = document.getElementById('checkout-items-summary');
+            if (itemsSummaryEl) {
+                if (cart.length > 0) {
+                    itemsSummaryEl.innerHTML = cart.map(item =>
+                        `<p style="font-size: 0.9em; margin-bottom: 5px;">${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</p>`
+                    ).join('');
+                } else {
+                     itemsSummaryEl.innerHTML = '<p style="font-style: italic; color: #777;">Your cart is empty.</p>';
+                     // Disable checkout button if cart is empty
+                     const checkoutBtn = document.querySelector('#checkout-form button[type="submit"]');
+                     if (checkoutBtn) checkoutBtn.disabled = true;
+                }
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Premium E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links (About is now active) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content for About Page ===== -->
+    <main>
+
+        <!-- ===== Page Header Section ===== -->
+        <section class="section page-header" style="background: linear-gradient(45deg, rgba(var(--primary-color-rgb), 0.8), rgba(var(--secondary-color-rgb), 0.8)); color: white; text-align: center; padding: 4rem 0;">
+            <div class="container">
+                <h1>About PremiumStore</h1>
+                <p style="font-size: 1.1rem; max-width: 700px; margin: 1rem auto 0;">Learn more about our journey, mission, and the team behind your favorite products.</p>
+            </div>
+        </section>
+
+        <!-- ===== Brand Story Section ===== -->
+        <section class="section about-page content-section">
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>PremiumStore started in a small garage in 2022 with a big idea: to create a curated online shopping experience offering high-quality, unique, and beautifully designed products. We noticed a gap in the market for an e-commerce platform that truly focused on aesthetics, user experience, and exceptional customer service.</p>
+                <p>Driven by a passion for design and technology, our founders poured their hearts into building a platform that wasn't just functional, but delightful to use. From sourcing the best items across various categories to meticulously crafting every pixel of the website, our goal has always been to exceed expectations.</p>
+                 <p>Today, PremiumStore has grown into a thriving community, serving customers worldwide. We remain committed to our core values of quality, innovation, and customer satisfaction, constantly seeking new ways to bring you the best products and a seamless shopping journey.</p>
+            </div>
+        </section>
+
+        <!-- ===== Mission & Vision Section ===== -->
+        <section class="section content-section" style="background-color: var(--bg-color);"> <!-- Alternate background slightly -->
+            <div class="container">
+                <h2>Our Mission & Vision</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h3><span style="color: var(--primary-color); margin-right: 8px;">🎯</span>Our Mission</h3>
+                        <p>To provide a premium online shopping experience by offering a curated selection of high-quality products, exceptional customer service, and an aesthetically pleasing, user-friendly platform.</p>
+                    </div>
+                     <div>
+                        <h3><span style="color: var(--secondary-color); margin-right: 8px;">🔭</span>Our Vision</h3>
+                        <p>To be the leading online destination for consumers seeking unique, quality products and a delightful shopping journey, fostering a community built on trust and shared appreciation for design and innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Team Members Section ===== -->
+        <!-- ===== Team Members Section ===== -->
+        <section class="section content-section" id="team">
+            <div class="container">
+                <h2>Meet the Team</h2>
+                <p style="text-align: center; max-width: 700px; margin: -10px auto 30px auto;">We're a passionate group of designers, developers, and curators dedicated to bringing you the best.</p>
+                <div class="team-grid">
+                    <!-- Team Member 1: Atharva Zope -->
+                    <div class="team-member-card">
+                        <div class="avatar-placeholder-lg">AZ</div> <!-- Initials Placeholder -->
+                        <h4>Atharva Zope</h4>
+                        <span>Founder & CEO</span>
+                        <p style="font-size: 0.9rem; margin-top: 8px;">The visionary driving the mission forward, passionate about blending tech and design.</p>
+                    </div>
+                    <!-- Team Member 2: Adwait Kamble -->
+                    <div class="team-member-card">
+                        <div class="avatar-placeholder-lg">AK</div> <!-- Initials Placeholder -->
+                        <h4>Adwait Kamble</h4>
+                        <span>Marketing Specialist</span> <!-- Example Role -->
+                        <p style="font-size: 0.9rem; margin-top: 8px;">Focused on outreach and connecting with our amazing customer community.</p> <!-- Example Desc -->
+                    </div>
+                    <!-- Team Member 3: Aryan Aradhye -->
+                    <div class="team-member-card">
+                        <div class="avatar-placeholder-lg">AA</div> <!-- Initials Placeholder -->
+                        <h4>Aryan Aradhye</h4>
+                        <span>Operations Lead</span> <!-- Example Role -->
+                        <p style="font-size: 0.9rem; margin-top: 8px;">Ensuring smooth day-to-day operations and logistics behind the scenes.</p> <!-- Example Desc -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ===== Timeline / Milestones Section ===== -->
+        <section class="section content-section" style="background-color: var(--bg-color);"> <!-- Alternate background slightly -->
+            <div class="container">
+                <h2>Our Journey</h2>
+                <div class="timeline">
+                    <!-- Milestone 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h5>2022 - The Spark</h5>
+                            <p>PremiumStore concept born. Initial design and platform development begins in a small garage workshop.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                             <h5>Early 2023 - Launch!</h5>
+                            <p>Official website launch with the first curated collection of 50 unique products across 5 categories.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h5>Mid 2023 - Growing Fast</h5>
+                            <p>Reached 1,000 satisfied customers. Expanded product range and introduced the Wishlist feature.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                         <div class="timeline-content">
+                            <h5>Late 2023 - Dark Mode & Mobile</h5>
+                            <p>Launched the much-requested Dark Mode theme and fully optimized the mobile experience.</p>
+                        </div>
+                    </div>
+                    <!-- Milestone 5 -->
+                     <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h5>2024 - Looking Ahead</h5>
+                            <p>Expanding into international shipping and planning exciting new category launches. Stay tuned!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <!-- Footer Columns (Same as index.html) -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Clothing">Clothing</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                         <li><a href="products.html?category=Home Decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

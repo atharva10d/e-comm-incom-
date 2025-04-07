@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Premium E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links (Contact is now active) -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content for Contact Page ===== -->
+    <main>
+        <section class="section contact-page">
+            <div class="container">
+                <h1 class="section-title">Get In Touch</h1>
+                <p style="text-align: center; max-width: 600px; margin: -20px auto 40px auto;">
+                    Have questions or feedback? We'd love to hear from you! Fill out the form below or use our contact details.
+                </p>
+
+                <div class="contact-layout"> <!-- Wrapper for grid layout -->
+
+                    <!-- Contact Form Section -->
+                    <div class="contact-form-section">
+                        <h3>Send Us a Message</h3>
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="contactName">Your Name</label>
+                                <input type="text" id="contactName" name="name" placeholder="Enter your full name" required>
+                                <span class="error-message"></span> <!-- For JS validation message -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail">Your Email</label>
+                                <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required>
+                                 <span class="error-message"></span>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" name="subject" placeholder="What is your message about?" required>
+                                 <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                                 <span class="error-message"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+
+<!-- START: Modified code in contact.html -->
+
+                    <!-- Contact Info & Map Section -->
+                    <div class="contact-info-section">
+                        <h3>Contact Information</h3>
+
+                        <!-- CSS Map Placeholder (Maybe add an Indian city name?) -->
+                        <div class="map-placeholder">
+                            🗺️ Map Area Placeholder (Pune Area)
+                        </div>
+
+                        <!-- Contact Details -->
+                        <div class="contact-details" id="contact-details">
+                            <p class="contact-detail-item" id="contact-person">
+                                <!-- JS inserts SVG --> <span class="icon-placeholder">👤</span>
+                                <strong>Contact Person:</strong> Atharva Zope
+                            </p>
+                            <p class="contact-detail-item" id="contact-phone">
+                                <!-- JS inserts SVG --> <span class="icon-placeholder">📞</span>
+                                <!-- Use Indian format -->
+                                <strong>Phone:</strong> <a href="tel:+919322681972">+91 93226 81972</a>
+                            </p>
+                            <p class="contact-detail-item" id="contact-email">
+                                <!-- JS inserts SVG --> <span class="icon-placeholder">📧</span>
+                                <!-- Use .in or relevant domain -->
+                                <strong>Email:</strong> <a href="mailto:support@premiumstore.co.in">support@premiumstore.co.in</a>
+                            </p>
+                             <p class="contact-detail-item" id="contact-address">
+                               <!-- JS inserts SVG --> <span class="icon-placeholder">📍</span>
+                               <!-- Plausible Indian Address -->
+                               <strong>Address:</strong> #15, A Wing, Premium Plaza, MG Road, Camp, Pune, Maharashtra 411001, India
+                            </p>
+                            <p class="contact-detail-item" id="contact-hours">
+                               <!-- JS inserts SVG --> <span class="icon-placeholder">⏰</span>
+                               <!-- Keep IST -->
+                               <strong>Business Hours:</strong> Mon - Sat, 10:00 AM - 7:00 PM (IST)
+                            </p>
+                        </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <!-- Footer Columns (Same as index.html) -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Clothing">Clothing</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                         <li><a href="products.html?category=Home Decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

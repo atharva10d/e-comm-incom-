@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Premium E-Commerce Store</title>
+    <!-- === LINK TO YOUR EXISTING CSS FILE === -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ======================================= -->
+    <style>
+        /* Basic styles if external CSS fails (REMOVE LATER) */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+        .product-card { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; }
+        .product-card img { max-width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                 <button id="search-icon-btn" title="Search">🔍</button>
+                 <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">❤️</a>
+                 <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">🛒<span class="cart-count" id="cart-count" style="display: none;">0</span></a>
+                 <button id="theme-toggle" title="Toggle Theme">🌙</button>
+                 <button class="hamburger-menu" id="hamburger-menu" title="Menu">☰</button>
+            </div>
+        </nav>
+        <!-- Search Bar Container -->
+        <div id="search-bar-container">
+             <input type="search" id="search-input-dropdown" placeholder="Search products...">
+        </div>
+    </header>
+
+    <!-- ===== Main Content for Products Page ===== -->
+    <main>
+        <section class="section products-page">
+            <div class="container">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <h4>Search Products</h4>
+                        <input type="search" id="search-input" placeholder="Enter keywords..." aria-label="Search Products">
+                    </div>
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <select id="category-filter" aria-label="Filter by Category">
+                            <option value="all">All Categories</option>
+                            <!-- Options will be populated/verified by JS -->
+                            <option value="Electronics">Electronics</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Home & Kitchen">Home & Kitchen</option>
+                            <option value="Books">Books</option>
+                            <option value="Beauty & Grooming">Beauty & Grooming</option>
+                            <option value="Sports & Fitness">Sports & Fitness</option>
+                            <option value="Toys & Games">Toys & Games</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Pet Supplies">Pet Supplies</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <label for="price-range" class="sr-only">Maximum Price</label>
+                        <input type="range" id="price-range" min="0" max="100000" step="100" value="100000">
+                        <p>Max Price: <span id="price-range-value">₹1,00,000</span></p>
+                    </div>
+                    <button class="btn btn-secondary" id="reset-filters-btn" style="width: 100%; margin-top: 1rem;">Reset Filters</button>
+                </aside>
+
+                <!-- Product Listing Area -->
+                <div class="product-listing">
+                     <h1 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: 2rem;">All Products</h1>
+                     <p id="product-count-info" style="margin-bottom: 20px; color: var(--text-color-secondary);" aria-live="polite"></p>
+                     <!-- === Product Grid (JS populates this) === -->
+                     <div class="product-grid" id="product-grid">
+                         <p id="products-loading-message" style="text-align:center; padding: 2rem; grid-column: 1 / -1;">Loading products...</p>
+                     </div>
+                     <!-- ========================================= -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Fashion">Fashion</a></li>
+                        <li><a href="products.html?category=Home+%26+Kitchen">Home & Kitchen</a></li>
+                        <li><a href="products.html?category=Books">Books</a></li>
+                        <li><a href="products.html?category=Beauty+%26+Grooming">Beauty & Grooming</a></li>
+                        <li><a href="products.html?category=Sports+%26+Fitness">Sports & Fitness</a></li>
+                        <li><a href="products.html?category=Toys+%26+Games">Toys & Games</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section"><h4>About Us</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="about.html#team">Team</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul></div>
+                <div class="footer-section"><h4>Support</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Shipping & Returns</a></li><li><a href="#">Track Order</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms & Conditions</a></li></ul></div>
+                <div class="footer-section"><h4>Connect</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll/Toast Placeholders ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">▲</button>
+    <div class="toast-notification" id="toast-notification"><span id="toast-message"></span></div>
+
+    <!-- ##################################################### -->
+    <!-- ### EMBEDDED JAVASCRIPT FOR THIS PAGE ### -->
+    <!-- ##################################################### -->
+
+        'use strict';
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Start of existing embedded script ---
+            console.log("DEBUG: DOMContentLoaded event fired."); // <--- ADD
+    
+            // ===== Global Variables & Selectors =====
+            const productGrid = document.getElementById('product-grid'); // <--- ADD: Check grid selection early
+            if (!productGrid) {
+                console.error("DEBUG: CRITICAL ERROR - #product-grid element NOT FOUND!"); // <--- ADD
+                return; // Stop execution if grid missing
+            } else {
+                console.log("DEBUG: #product-grid element found successfully."); // <--- ADD
+            }
+            // ... (rest of selectors like body, loaderOverlay, etc.) ...
+            const loadingMessage = document.getElementById('products-loading-message'); // <--- ADD: Check loading msg selection
+    
+            // ... (Mock Data Generation - Assume this works for now unless console shows errors here) ...
+             console.log(`DEBUG: Mock products array created with length: ${mockProducts.length}`); // <--- ADD
+    
+            // ... (Helper Functions - formatPrice, renderStars, etc.) ...
+    
+            // ... (Cart & Wishlist Stubs) ...
+    
+            // ===== Product Page Specific Logic =====
+            const initProductsPage = () => {
+                console.log("DEBUG: initProductsPage function started."); // <--- ADD
+    
+                // Selectors inside the function (already checked productGrid above)
+                const categoryFilter = document.getElementById('category-filter');
+                // ... rest of selectors ...
+    
+                // --- Render Product Card ---
+                const renderProductCard = (product) => {
+                     // console.log(`DEBUG: renderProductCard called for ID: ${product?.id}`); // <--- Optional: Uncomment if needed
+                     if (!product || !product.id || !product.name) { // <--- ADD: Basic product validation
+                         console.warn("DEBUG: renderProductCard received invalid product data:", product);
+                         return null;
+                     }
+                     try { // <--- ADD: try...catch around card generation
+                        const card = document.createElement('div');
+                        card.className = 'product-card fade-in';
+                        card.dataset.productId = product.id;
+                        const isWishlisted = isInWishlist(product.id);
+                        const imageSrc = product.images?.[0] || './images/placeholder.png';
+    
+                        // **BE VERY CAREFUL WITH SYNTAX IN THIS TEMPLATE LITERAL**
+                        card.innerHTML = `
+                            <div class="product-image">
+                                <a href="product-details.html#${product.id}" data-product-id="${product.id}">
+                                    <img src="${imageSrc}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.src='./images/placeholder.png'; console.warn('Image load error:', '${imageSrc}')">
+                                </a>
+                                <div class="quick-actions">
+                                    <button class="add-to-wishlist-quick ${isWishlisted ? 'active' : ''}" data-product-id="${product.id}" title="${isWishlisted ? 'In Wishlist' : 'Add to Wishlist'}">
+                                        ${isWishlisted ? '❤️' : '🤍'}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info-card">
+                                <h3><a href="product-details.html#${product.id}" data-product-id="${product.id}">${product.name}</a></h3>
+                                ${product.rating ? `
+                                    <div class="star-rating" title="${product.rating} stars (${product.reviewCount || 0} reviews)">
+                                        ${renderStars(product.rating)}
+                                        ${product.reviewCount ? `<span class="review-count">(${product.reviewCount})</span>` : ''}
+                                    </div>` : '<div class="star-rating" style="height: 1.5em; margin-bottom: 0.6rem;"></div>'}
+                                <p class="price">
+                                    ${formatPrice(product.price)}
+                                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                                </p>
+                                <button class="btn btn-primary add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
+                            </div>
+                        `;
+                        // console.log(`DEBUG: Card HTML generated for ID: ${product.id}`); // <--- Optional: Uncomment if needed
+                        return card;
+                    } catch (error) {
+                         console.error(`DEBUG: Error generating card for product ID ${product?.id}:`, error); // <--- ADD
+                         console.error("DEBUG: Problematic product data:", product); // <--- ADD
+                         return null; // Return null if card generation fails
+                    }
+                };
+    
+                 // --- Render Grid ---
+                 const renderProductGrid = () => {
+                    console.log(`DEBUG: renderProductGrid called. Products to render: ${currentProducts.length}`); // <--- ADD
+                    if (!productGrid) {
+                        console.error("DEBUG: renderProductGrid - #product-grid is null!"); return;
+                    }
+    
+                    console.log("DEBUG: Clearing product grid..."); // <--- ADD
+                    productGrid.innerHTML = ''; // Clear previous content
+    
+                    if (currentProducts.length === 0) {
+                        console.log("DEBUG: No products to display, showing empty message."); // <--- ADD
+                        productGrid.innerHTML = '<p style="text-align:center; padding: 2rem; grid-column: 1 / -1;">No products found matching your criteria.</p>';
+                    } else {
+                        console.log("DEBUG: Starting loop to append cards..."); // <--- ADD
+                        let appendedCount = 0;
+                        currentProducts.forEach((product, index) => {
+                            const card = renderProductCard(product);
+                            if (card) {
+                                try { // <--- ADD: try...catch around append
+                                    productGrid.appendChild(card);
+                                    appendedCount++;
+                                } catch (appendError) {
+                                    console.error(`DEBUG: Error appending card for product ID ${product?.id}:`, appendError); // <--- ADD
+                                }
+                            } else {
+                                 console.warn(`DEBUG: Skipping append for null card (product ID ${product?.id}, index ${index})`); // <--- ADD
+                            }
+                        });
+                         console.log(`DEBUG: Finished appending cards. Appended: ${appendedCount} / ${currentProducts.length}`); // <--- ADD
+                    }
+                    // Update count info
+                    if (productCountInfo) {
+                        productCountInfo.textContent = `Showing ${currentProducts.length} of ${mockProducts.length} products`;
+                    }
+                     // Explicitly hide loading message if it somehow wasn't removed by innerHTML=''
+                     if (loadingMessage && loadingMessage.parentNode === productGrid) {
+                         console.log("DEBUG: Removing loading message explicitly."); // <--- ADD
+                         productGrid.removeChild(loadingMessage);
+                     }
+                };
+    
+                // --- Apply Filters ---
+                const applyFiltersAndRender = () => {
+                    console.log("DEBUG: applyFiltersAndRender called."); // <--- ADD
+                    // ... (filtering logic remains the same) ...
+                     let filtered = mockProducts.filter(p => {
+                         // ... (filter conditions) ...
+                         if (!p) return false;
+                         const categoryMatch = filters.category === 'all' || p.category === filters.category;
+                         const searchMatch = !filters.search || (p.name && p.name.toLowerCase().includes(filters.search)) || (p.description && p.description.toLowerCase().includes(filters.search)) || (p.category && p.category.toLowerCase().includes(filters.search));
+                         const priceMatch = p.price <= filters.maxPrice;
+                         return categoryMatch && searchMatch && priceMatch;
+                     });
+                    currentProducts = filtered;
+                    console.log(`DEBUG: Filtering complete. ${currentProducts.length} products match.`); // <--- ADD
+                    renderProductGrid(); // Render immediately
+                };
+    
+                // --- Setup Filters & Initial Render ---
+                // ... (event listeners setup remains the same) ...
+                console.log("DEBUG: Setting up filters..."); // <--- ADD
+                // (Include the setup logic for categoryFilter, priceRange, searchInput, resetFiltersBtn)
+                if (categoryFilter) { categoryFilter.addEventListener('change', applyFiltersAndRender); /* Add other setup code */ }
+                if (priceRange && priceValue) { /* Add setup code */}
+                if (searchInput) { searchInput.addEventListener('input', applyFiltersAndRender); }
+                if (resetFiltersBtn) { resetFiltersBtn.addEventListener('click', () => { /* Add reset logic */ applyFiltersAndRender(); }); }
+                if (productGrid) { productGrid.addEventListener('click', (event) => { /* Add event handling logic */ }); }
+    
+    
+                console.log("DEBUG: Performing initial applyFiltersAndRender..."); // <--- ADD
+                applyFiltersAndRender(); // Initial render call
+                console.log("DEBUG: initProductsPage function finished."); // <--- ADD
+            };
+    
+            // ... (General Initializations - hideLoader, setFooterYear, etc.) ...
+            // --- Run Initializations ---
+             try { // <--- ADD: Wrap initial calls in try...catch
+                console.log("DEBUG: Running general initializers..."); // <--- ADD
+                hideLoader();
+                setFooterYear();
+                initMobileNav();
+                initTheme();
+                loadIcons();
+                updateCartIcon();
+                updateWishlistHeaderIconState();
+    
+                // --- Initialize Products Page Specific Logic ---
+                initProductsPage(); // <-- This is the crucial call
+                console.log("DEBUG: Script execution finished."); // <--- ADD
+             } catch (initError) {
+                  console.error("DEBUG: CRITICAL ERROR during script initialization:", initError); // <--- ADD
+                  // Display error to user if possible
+                  const grid = document.getElementById('product-grid');
+                  if (grid) grid.innerHTML = '<p style="color: red; text-align: center; padding: 2rem; grid-column: 1 / -1;">Error loading products. Please check the console (F12).</p>';
+                  else alert("A critical error occurred loading the page. Please check the console (F12).");
+             }
+    
+    
+        }); // End DOMContentLoaded
+        </script>
+        <!-- ##################################################### -->
+    
+    </body>
+    </html>

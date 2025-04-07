@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium E-Commerce Store - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link Google Font (Example: Poppins) -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- ===== Loader Overlay ===== -->
+    <div class="loader-overlay" id="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <nav class="navbar container">
+            <!-- Logo: Inline SVG or Text -->
+            <a href="index.html" class="logo">
+                <!-- Simple Inline SVG Logo Example -->
+                <svg width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px; fill: var(--primary-color);">
+                    <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 Z M50 15 L85 32 V68 L50 85 L15 68 V32 Z M50 25 L75 38 V62 L50 75 L25 62 V38 Z"/>
+                </svg>
+                PremiumStore
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <!-- Icons & Theme Toggle -->
+            <div class="nav-icons">
+                <button id="search-icon-btn" title="Search">
+                    <!-- JS will insert SVG --> 🔍
+                </button>
+                <a href="wishlist.html" id="wishlist-icon-link" title="Wishlist">
+                     <!-- JS will insert SVG --> ❤️
+                     <!-- Wishlist count can be added similarly if needed -->
+                </a>
+                <a href="cart.html" id="cart-icon-btn" title="Cart" style="position: relative;">
+                    <!-- JS will insert SVG --> 🛒
+                    <span class="cart-count" id="cart-count" style="display: none;">0</span>
+                </a>
+                <button id="theme-toggle" title="Toggle Theme">
+                    <!-- JS will insert SVG --> 🌙
+                </button>
+                 <!-- Hamburger Menu Button (Initially hidden by CSS) -->
+                <button class="hamburger-menu" id="hamburger-menu" title="Menu">
+                    <!-- JS will insert SVG --> ☰
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+
+        <!-- ===== Hero Section ===== -->
+        <section class="hero">
+            <div class="hero-slider">
+                <!-- Slide 1 (Active by default) -->
+                <div class="slide slide-1 active">
+                    <div class="slide-content">
+                        <h1>Discover Amazing Deals</h1>
+                        <p>Shop the latest trends in electronics, fashion, and more with vibrant styles.</p>
+                        <a href="products.html" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide slide-2">
+                     <div class="slide-content">
+                        <h1>Vibrant Summer Collection</h1>
+                        <p>Get ready for the sun with our new arrivals. Bright colors, fresh designs!</p>
+                        <a href="products.html?category=Clothing" class="btn btn-primary">Explore Fashion</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide slide-3">
+                     <div class="slide-content">
+                        <h1>Tech Gadgets Galore</h1>
+                        <p>Upgrade your life with cutting-edge technology and sleek designs.</p>
+                        <a href="products.html?category=Electronics" class="btn btn-primary">View Electronics</a>
+                    </div>
+                </div>
+                <!-- Slider controls can be added here if needed (dots/arrows) -->
+            </div>
+        </section>
+
+        <!-- ===== Featured Categories ===== -->
+        <section class="section featured-categories">
+            <div class="container">
+                <h2 class="section-title">Featured Categories</h2>
+                <div class="category-grid">
+                    <!-- Card 1: Electronics -->
+                    <a href="products.html?category=Electronics" class="category-card">
+                        <!-- Simple SVG Icon for Electronics -->
+                        <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20,18H4V6H20M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4Z M8,12H16V14H8V12Z" /></svg>
+                        <h3>Electronics</h3>
+                    </a>
+                    <!-- Card 2: Clothing -->
+                     <a href="products.html?category=Clothing" class="category-card" style="background: linear-gradient(135deg, #6dd5ed, #2193b0);"> <!-- Example Different Gradient -->
+                        <!-- Simple SVG Icon for Clothing -->
+                        <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6,3A1,1 0 0,0 5,4V19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19V4A1,1 0 0,0 18,3H14A3,3 0 0,0 11,0A3,3 0 0,0 8,3H6M17,5V18H7V5H8V8H10V5H14V8H16V5H17Z" /></svg>
+                        <h3>Clothing</h3>
+                    </a>
+                    <!-- Card 3: Home Decor -->
+                    <a href="products.html?category=Home Decor" class="category-card" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);"> <!-- Example Different Gradient -->
+                        <!-- Simple SVG Icon for Home -->
+                         <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" /></svg>
+                        <h3>Home Decor</h3>
+                    </a>
+                     <!-- Card 4: Books -->
+                     <a href="products.html?category=Books" class="category-card" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);"> <!-- Example Different Gradient -->
+                         <!-- Simple SVG Icon for Books -->
+                          <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M18,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V4A2,2 0 0,0 18,2M13,18H6V16H13V18M18,14H6V12H18V14M18,10H6V8H18V10M18,6H6V4H18V6Z" /></svg>
+                        <h3>Books</h3>
+                    </a>
+                    <!-- Add 1-2 more cards if desired -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Trending Products ===== -->
+        <section class="section trending-products">
+            <div class="container">
+                <h2 class="section-title">Trending Products</h2>
+                <!-- Product Grid (JS will populate this) -->
+                <div class="product-grid" id="trending-product-grid">
+                    <!-- Placeholder Structure (JS will replace this) -->
+                    <div class="product-card">
+                        <div class="product-image-placeholder">✨</div>
+                        <h3>Loading Product...</h3>
+                        <p class="price">$0.00</p>
+                        <div class="quick-actions" style="opacity: 0;"> <!-- Keep structure -->
+                             <button class="add-to-wishlist-quick" title="Add to Wishlist">❤️</button>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                     <div class="product-card">
+                        <div class="product-image-placeholder" style="background: linear-gradient(135deg, #e2e2e2, #c9d6ff);">📱</div>
+                        <h3>Loading Product...</h3>
+                        <p class="price">$0.00</p>
+                         <div class="quick-actions" style="opacity: 0;">
+                             <button class="add-to-wishlist-quick" title="Add to Wishlist">❤️</button>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                     <div class="product-card">
+                        <div class="product-image-placeholder">👕</div>
+                        <h3>Loading Product...</h3>
+                        <p class="price">$0.00</p>
+                         <div class="quick-actions" style="opacity: 0;">
+                             <button class="add-to-wishlist-quick" title="Add to Wishlist">❤️</button>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image-placeholder" style="background: linear-gradient(135deg, #f6e384, #ffd1ff);">👟</div>
+                        <h3>Loading Product...</h3>
+                        <p class="price">$0.00</p>
+                         <div class="quick-actions" style="opacity: 0;">
+                             <button class="add-to-wishlist-quick" title="Add to Wishlist">❤️</button>
+                        </div>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                    <!-- End Placeholders -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Deal of the Day ===== -->
+        <section class="section deal-of-the-day">
+            <div class="container deal-content">
+                <h2>Deal of the Day!</h2>
+                <p>Limited Time Offer: Get the exclusive 'Aura Smartwatch' at 40% off! Ends Soon!</p>
+                <!-- Countdown Timer (JS will update this) -->
+                <div class="countdown-timer" id="countdown-timer">
+                    <div class="timer-box"><span class="days">00</span><small>Days</small></div>
+                    <div class="timer-box"><span class="hours">00</span><small>Hours</small></div>
+                    <div class="timer-box"><span class="minutes">00</span><small>Mins</small></div>
+                    <div class="timer-box"><span class="seconds">00</span><small>Secs</small></div>
+                </div>
+                <!-- Update product ID link if needed -->
+                <a href="product-details.html#4" class="btn btn-secondary">View Deal</a>
+            </div>
+        </section>
+
+        <!-- ===== Testimonials ===== -->
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-grid">
+<!-- START: Modified code in index.html (Testimonials Section) -->
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <span class="avatar-placeholder">😊</span>
+                            <div class="testimonial-author">
+                                <!-- Changed Name -->
+                                <h4>Priya S.</h4>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                         <div class="star-rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <p>"Absolutely fantastic service and product quality. My new favorite online store! The website is beautiful and easy to use."</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                         <div class="testimonial-header">
+                            <span class="avatar-placeholder">😎</span>
+                            <div class="testimonial-author">
+                                <!-- Changed Name -->
+                                <h4>Rohan M.</h4>
+                                <span>Tech Enthusiast</span>
+                            </div>
+                        </div>
+                         <div class="star-rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>☆</span>
+                        </div>
+                        <p>"Great selection of gadgets. Found exactly what I needed for my setup in Delhi. The dark mode is a nice touch!"</p> <!-- Added context -->
+                    </div>
+                     <!-- Testimonial 3 -->
+                     <div class="testimonial-card">
+                         <div class="testimonial-header">
+                            <span class="avatar-placeholder">🥳</span>
+                            <div class="testimonial-author">
+                                <!-- Changed Name -->
+                                <h4>Aisha K.</h4>
+                                <span>Fashion Lover</span>
+                            </div>
+                        </div>
+                         <div class="star-rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <p>"Received my order quickly in Bangalore, and the dress fits perfectly. Love the vibrant colors and the smooth checkout process."</p> <!-- Added context -->
+                    </div>
+                      </div>
+                         <div class="star-rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <p>"Received my order quickly, and the dress fits perfectly. Love the vibrant colors and the smooth checkout process."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Newsletter Sign-Up ===== -->
+        <section class="section newsletter">
+             <div class="container">
+                 <h2 class="section-title">Stay Updated</h2>
+                 <p style="text-align: center; max-width: 600px; margin: -20px auto 30px auto; color: var(--text-color);">
+                     Subscribe to our newsletter for the latest product drops, exclusive deals, and special offers directly in your inbox.
+                 </p>
+                 <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address for Newsletter">
+                    <button type="submit" class="btn btn-glowing">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer Column 1: Shop -->
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Clothing">Clothing</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                         <li><a href="products.html?category=Home Decor">Home Decor</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Column 2: About -->
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#team">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Column 3: Support -->
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                 <!-- Footer Column 4: Connect -->
+                 <div class="footer-section">
+                    <h4>Connect</h4>
+                     <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer Bottom: Copyright and Credit -->
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> PremiumStore. All Rights Reserved.</p>
+                 <!-- Designer Credit -->
+                 <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">✨ Designed & Developed by <strong>Atharva Zope</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Scroll to Top Button ===== -->
+    <button id="scrollToTopBtn" title="Scroll to Top" style="display: none;">
+        <!-- JS will insert SVG --> ▲
+    </button>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toast-notification">
+        <span id="toast-message">Notification Text</span>
+    </div>
+
+    <!-- ===== JavaScript Link ===== -->
+    <!-- Small inline script for immediate needs -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Note: The main logic for dynamic content (trending products, icons, cart, etc.)
+        // will be in the external script.js file.
+        // This ensures the basic structure loads first.
+    </script>
+    <!-- Link the main JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
